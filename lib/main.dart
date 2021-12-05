@@ -1,13 +1,14 @@
-import 'package:adarsh/app/provider.dart';
-import 'package:adarsh/app/router.dart';
-import 'package:adarsh/constants/app_colors.dart';
-import 'package:adarsh/constants/app_constants.dart';
-import 'package:adarsh/constants/app_strings.dart';
-import 'package:adarsh/services/navigation_service.dart';
-import 'package:adarsh/widgets/tools/screen_size.dart';
+import 'package:NewsApp/services/navigation_service.dart';
+import 'package:NewsApp/widgets/tools/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
+import 'app/provider.dart';
+import 'app/router.dart';
+import 'constants/app_colors.dart';
+import 'constants/app_constants.dart';
+import 'constants/app_strings.dart';
 
 void main() {
   runApp(const MyApp());

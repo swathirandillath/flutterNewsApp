@@ -1,4 +1,4 @@
-import 'package:adarsh/UI/dashBoard/dash_board_view.dart';
+import 'package:NewsApp/UI/dashBoard/dash_board_view.dart';
 
 import '/constants/app_constants.dart';
 import '/ui/splash/splash_view.dart';

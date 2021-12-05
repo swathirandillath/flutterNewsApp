@@ -1,4 +1,4 @@
-import 'package:adarsh/widgets/tools/view_model_builder.dart';
+import 'package:NewsApp/widgets/tools/view_model_builder.dart';
 
 import 'package:flutter/material.dart';
 

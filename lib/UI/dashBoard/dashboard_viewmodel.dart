@@ -1,6 +1,6 @@
-import 'package:adarsh/models/news_response.dart';
-import 'package:adarsh/services/api_service.dart';
-import 'package:adarsh/widgets/tools/base_view_models.dart';
+import 'package:NewsApp/models/news_response.dart';
+import 'package:NewsApp/services/api_service.dart';
+import 'package:NewsApp/widgets/tools/base_view_models.dart';
 
 import 'package:flutter/material.dart';
 

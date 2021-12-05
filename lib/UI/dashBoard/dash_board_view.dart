@@ -1,9 +1,7 @@
-import 'package:adarsh/constants/app_colors.dart';
-import 'package:adarsh/models/news_response.dart';
-import 'package:adarsh/widgets/tools/model_future_builder.dart';
-import 'package:adarsh/widgets/tools/screen_size.dart';
-
-import 'package:adarsh/widgets/tools/view_model_builder.dart';
+import 'package:NewsApp/models/news_response.dart';
+import 'package:NewsApp/widgets/tools/model_future_builder.dart';
+import 'package:NewsApp/widgets/tools/screen_size.dart';
+import 'package:NewsApp/widgets/tools/view_model_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
