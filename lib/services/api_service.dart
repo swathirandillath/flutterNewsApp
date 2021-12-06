@@ -8,8 +8,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   static const String baseUrl =
-      "https://newsapi.org/v2/everything?q=tesla&from=2021-11-05&sortBy=publishedAt&apiKey=16e492a631af46f2bb94f361314960d0";
-
+     "https://newsapi.org/v2/everything?q=tesla&from=2021-11-06&sortBy=publishedAt&apiKey=16e492a631af46f2bb94f361314960d0";
   var client = http.Client();
   Duration timeoutDuration = const Duration(seconds: 20);
 
