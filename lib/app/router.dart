@@ -1,4 +1,6 @@
 import 'package:NewsApp/UI/dashBoard/dash_board_view.dart';
+import 'package:NewsApp/UI/login/login.dart';
+import 'package:NewsApp/UI/my_home/my_home.dart';
 
 import '/constants/app_constants.dart';
 import '/ui/splash/splash_view.dart';
@@ -11,6 +13,10 @@ class PageRouter {
         return MaterialPageRoute(builder: (_) => const SplashView());
       case RoutePaths.dashBoard:
         return MaterialPageRoute(builder: (_) => const DashBoardView());
+      case RoutePaths.login:
+        return MaterialPageRoute(builder: (_) =>  LogIn());
+      case RoutePaths.home:
+        return MaterialPageRoute(builder: (_) => const MyHome());
 
       default:
         return MaterialPageRoute(
@@ -23,4 +29,5 @@ class PageRouter {
     }
   }
 }
+
 

@@ -13,7 +13,7 @@ class SplashViewModel extends BaseViewModel {
   void startTimer() async {
 
     _timer = Timer(const Duration(seconds: 1), () {
-      navigationService.pushReplacementNamed(RoutePaths.dashBoard);
+      navigationService.pushReplacementNamed(RoutePaths.login);
     });
   }
 

@@ -2,12 +2,9 @@ import 'package:NewsApp/models/news_response.dart';
 import 'package:NewsApp/widgets/tools/model_future_builder.dart';
 import 'package:NewsApp/widgets/tools/screen_size.dart';
 import 'package:NewsApp/widgets/tools/view_model_builder.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
 import 'dashboard_viewmodel.dart';
 
 class DashBoardView extends StatelessWidget {
@@ -17,12 +14,8 @@ class DashBoardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<DashBoardViewModel>.reactive(
       onModelReady: (model) => model.dashBoard(),
-      builder: (context, model, child) => Scaffold(
-        appBar: AppBar(
-          title: const Text("News"),
-          centerTitle: true,
-        ),
-        body: Container(
+      builder: (context, model, child) =>
+         Container(
           height: ScreenSize.height,
           color: Colors.white,
           child: ModelFutureListBuilder<Articles>(
@@ -94,7 +87,6 @@ class DashBoardView extends StatelessWidget {
             ),
           ),
         ),
-      ),
       viewModelBuilder: () =>
           DashBoardViewModel(apiService: Provider.of(context)),
     );
