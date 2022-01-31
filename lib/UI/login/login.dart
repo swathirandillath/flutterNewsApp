@@ -1,12 +1,13 @@
 import 'package:NewsApp/UI/forgot_password/forgot_password.dart';
 import 'package:NewsApp/UI/login/widgets/social_icon.dart';
 import 'package:NewsApp/UI/onboarding/onboarding_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 import 'custom_icons.dart';
 
 class LogIn extends StatefulWidget {
@@ -15,6 +16,22 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
   bool _isSelected = false;
   bool _lockUIButtons = false;
 
@@ -441,7 +458,8 @@ class _LogInState extends State<LogIn> {
                                   Color(0xFF00eaf8),
                                 ],
                                 icondata: CustomIcons.facebook,
-                                onPressed: () {},
+                                onPressed: () {
+                                  },
                               ),
                               SocialIcon(
                                 colors: const [
@@ -449,7 +467,13 @@ class _LogInState extends State<LogIn> {
                                   Color(0xFFff355d),
                                 ],
                                 icondata: CustomIcons.googlePlus,
-                                onPressed: () {},
+                                onPressed: () {
+                                // var signIn =
+                                // signIn.asStream()
+                                  signInWithGoogle();
+
+
+                                },
                               ),
                               SocialIcon(
                                 colors: const [

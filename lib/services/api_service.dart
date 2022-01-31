@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2021-12-28&sortBy=publishedAt&apiKey=16e492a631af46f2bb94f361314960d0";
+  static const String baseUrl = "https://newsapi.org/v2/everything?q=tesla&from=2021-12-31&sortBy=publishedAt&apiKey=16e492a631af46f2bb94f361314960d0";
   var client = http.Client();
   Duration timeoutDuration = const Duration(seconds: 20);
 

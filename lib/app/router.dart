@@ -12,7 +12,7 @@ class PageRouter {
       case RoutePaths.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());
       case RoutePaths.dashBoard:
-        return MaterialPageRoute(builder: (_) => const DashBoardView());
+        return MaterialPageRoute(builder: (_) =>  DashBoardView());
       case RoutePaths.login:
         return MaterialPageRoute(builder: (_) =>  LogIn());
       case RoutePaths.home:

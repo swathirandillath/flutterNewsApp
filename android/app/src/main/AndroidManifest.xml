@@ -3,7 +3,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="NewsApp"
-        android:icon="@drawable/news_logo">
+        android:icon="@drawable/news_logo"
+        android:usesCleartextTraffic="true"
+
+        >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

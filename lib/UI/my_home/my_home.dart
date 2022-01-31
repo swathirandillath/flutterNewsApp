@@ -2,6 +2,7 @@ import 'package:NewsApp/UI/dashBoard/dash_board_view.dart';
 import 'package:NewsApp/UI/my_home/profile/editprofile.dart';
 import 'package:NewsApp/UI/my_home/profile/profile.dart';
 import 'package:NewsApp/UI/notification/notifications.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage>
       _selectedIndex = index;
     });
   }
+  String? email="",name="";
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,17 @@ class _MyHomePageState extends State<MyHomePage>
         context: context,
         minTextAdapt: true,
         orientation: Orientation.portrait);
+    FirebaseAuth.instance
+        .authStateChanges()
+        .listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+        email = user.email;
+        name=user.displayName;
+      }
+    });
 
 
     Widget horizontalLine() => Padding(
@@ -275,7 +288,7 @@ class _MyHomePageState extends State<MyHomePage>
     ///generate  top buttons for cardGraph
     ///set home tab view
     _widgetOptions = [
-      const DashBoardView(),
+       DashBoardView(),
      const Notifications(),
    const ProfilePage()
     ];
@@ -338,14 +351,27 @@ class _MyHomePageState extends State<MyHomePage>
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Davis Thomas',
-                        style: GoogleFonts.lato(
-                          color: Colors.blue[800],
-                          fontSize: ScreenUtil().setSp(30),
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
-                        ),
+                      child: Column(
+                        children: [
+                          Text(
+                           name!,
+                          style: TextStyle(
+                            color: Colors.black
+                          ),
+                          /*  style: GoogleFonts.lato(
+                              color: Colors.blue[800],
+                              fontSize: ScreenUtil().setSp(30),
+                              fontWeight: FontWeight.w700,
+                              fontStyle: FontStyle.normal,
+                            ),*/
+                          ),
+                          Text(
+                            email!,
+                            style: TextStyle(
+                                color: Colors.black
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
