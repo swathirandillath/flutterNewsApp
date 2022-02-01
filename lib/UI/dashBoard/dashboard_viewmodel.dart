@@ -9,6 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class DashBoardViewModel extends BaseViewModel {
   DashBoardViewModel({required ApiService apiService})
       : _apiService = apiService;
+  String? name,email;
 
   final ApiService _apiService;
   List<Articles> articles = [];
@@ -19,11 +20,11 @@ class DashBoardViewModel extends BaseViewModel {
     );
 
   }
-  Future<UserCredential> signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    // Obtain the auth details from the requestf
+    // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
     // Create a new credential
@@ -33,6 +34,16 @@ class DashBoardViewModel extends BaseViewModel {
     );
 
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    final userCredential = await FirebaseAuth.instance.signInWithCredential(
+      credential,
+    );
+
+    debugPrint("UID: ${userCredential.user?.uid}");
+    debugPrint("Email: ${userCredential.user?.email}");
+    debugPrint("Display Name: ${userCredential.user?.displayName}");
+    name=userCredential.user?.displayName;
+    email=userCredential.user?.email;
+    notifyListeners();
   }
+
 }
