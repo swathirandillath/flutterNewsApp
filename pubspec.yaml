@@ -46,6 +46,8 @@ dependencies:
   firebase_messaging: ^11.2.6
   firebase_auth: ^3.3.6
   google_sign_in: ^5.2.3
+  flutter_facebook_auth: ^4.0.1
+  twitter_login: ^4.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

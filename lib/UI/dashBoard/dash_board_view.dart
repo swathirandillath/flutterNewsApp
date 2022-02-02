@@ -39,6 +39,7 @@ class DashBoardView extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
               builder: (context, data, child) => ListView.builder(
+                shrinkWrap: true,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                 itemCount: data.length,
